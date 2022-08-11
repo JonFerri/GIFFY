@@ -1,40 +1,18 @@
-import "./TrendingSearches.css"
-
-import React, {useRef, useEffect, useState} from "react";
+import "./TrendingSearches.css";
 import TrendingSearches from "./TrendingSearches";
-
-
+import useLazy from "Hooks/useLazy";
 
 const LazyTrending = () => {
+  const { show, fromRef } = useLazy({});
 
-    const lazyRef = useRef<HTMLDivElement>(null)
-    
-    const [show, setShow] = useState<boolean>(false)
-    
-    useEffect(()=> {
-        const onScroll = (entries:IntersectionObserverEntry[]) => {
-            const observedElement = entries[0];
-            if (observedElement.isIntersecting) {
-                setShow(true)
-                observer.disconnect()
-            }
+  return (
+   
+    <div ref={fromRef}>
+        {
+            show ? <TrendingSearches /> : null
         }
-        const element = lazyRef.current as Element 
-        const observer = new IntersectionObserver(onScroll,{rootMargin: "100px"})
-        observer.observe(element)
-        
-        return () => observer.disconnect()
-    })
+    </div>
+  ) 
+};
 
-    return (
-        <div ref={lazyRef}>
-            {
-                show ? <TrendingSearches /> : null
-            }
-
-        </div>
-    )
-
-}
-
-export default LazyTrending
+export default LazyTrending;
