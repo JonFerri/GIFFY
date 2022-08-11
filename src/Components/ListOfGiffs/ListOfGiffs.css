@@ -1,0 +1,44 @@
+:root {
+  --results-columns:1
+}
+/* 
+.ListOfGiffs {
+  display: grid;
+  width: 100%;
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+} */
+
+
+.list-of-giffs {
+  column-count: var(--results-columns);
+  column-gap: .5rem;
+  row-gap: .5rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  min-height: 70vh;
+}
+
+
+@media (min-width: 430px) {
+  :root {
+    --results-columns:2
+  }
+}
+
+@media (min-width: 600px) {
+  :root {
+    --results-columns:3
+  }
+}
+
+
+@media (min-width: 800px) {
+  :root {
+    --results-columns:4
+  }
+}
+

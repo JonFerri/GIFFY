@@ -1,0 +1,24 @@
+#lazyTrending {
+    min-height: 100px;
+    border: solid 1px white
+}
+
+.trending-words-container {
+    padding: 0 2rem;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+.trending-words-container .link {
+    flex:0 0 auto;
+    display: block;
+    color: aquamarine;
+    padding: 0 .5rem;
+    font-size: 24px;
+    border: blue solid 1px;
+    background-color: rgba(222, 201, 236, 0.656);
+    border-radius: 100px;
+    text-decoration: none;
+}
+

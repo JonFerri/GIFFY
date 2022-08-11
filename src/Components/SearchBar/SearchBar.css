@@ -1,0 +1,9 @@
+.search-bar {
+    background-color: rgba(256, 256, 256, .5);
+    margin: 5rem 0;
+    padding: 2rem;
+}
+.search-bar button, .search-bar input {
+    border: none;
+    padding: .3rem;
+}

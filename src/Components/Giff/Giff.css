@@ -1,0 +1,21 @@
+.single-giff-container {
+    position: relative;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+}
+
+.single-giff-container img {
+    width: 100%;
+    object-fit: contain;
+    
+}
+.single-giff-container h4 {
+    background-color: rgba(0,0,0, .4);
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    padding: .4rem;
+}
