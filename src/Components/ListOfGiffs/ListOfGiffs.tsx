@@ -13,7 +13,7 @@ type ListOfGiffsProps = {
 };
 
 const ListOfGiffs = ({ giffs }: ListOfGiffsProps) => {
-  
+
 return (
     <>
       <div className='list-of-giffs'>

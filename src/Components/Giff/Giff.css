@@ -6,16 +6,18 @@
     display: inline-block;
     width: 100%;
 }
-
+.img-container {
+    position:relative
+}
 .single-giff-container img {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     
 }
 .single-giff-container h4 {
     background-color: rgba(0,0,0, .4);
     position:absolute;
     left: 0;
-    bottom: 0;
+    bottom: 3px;
     padding: .4rem;
 }

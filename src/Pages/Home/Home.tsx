@@ -10,14 +10,16 @@ import LazyTrending from "Components/TrendingSearches/LazyTrending";
 
 const Home = () => {
     
-    const { giffs, isRandom, keyword } = useGiffs(GetKeyword())
-        
+    const { giffs, isRandom, keyword, setPage } = useGiffs(GetKeyword())
+   
     return (
         <div className="home-page">
             <SearchBar />
             <h3>{isRandom ? "Random Giffs" : `Last search: "${ decodeURI(keyword) }"`}</h3>
             <ListOfGiffs giffs={giffs} /> 
+            <button onClick={()=> setPage(prev => prev + 1)} >Next page</button>
             <LazyTrending />
+
         </div>
 
     )

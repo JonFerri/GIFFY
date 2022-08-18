@@ -1,0 +1,29 @@
+
+.giffs-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.giffs-result-container > .link {
+    align-self: flex-start;
+    display: block;
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    padding: 2rem;
+}
+
+.giffs-result-container > button {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    background-color: rgb(159, 87, 227);
+    color: white;
+    padding: 1rem;
+    font-size: 1.5rem;
+}

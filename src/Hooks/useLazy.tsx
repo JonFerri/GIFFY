@@ -3,9 +3,10 @@ import {useState, useEffect, useRef} from "react"
 type optionsTypes = {
     root?: HTMLElement | null
     rootMargin?: string
+    once?: boolean
 }
 
-const useLazy = ({root=null,rootMargin="0px 0px 200px 0px"}:optionsTypes) => {
+const useLazy = ({root=null,rootMargin="0px 0px 200px 0px", once = true}:optionsTypes) => {
 
     const [show, setShow] = useState<boolean>(false)
     const fromRef = useRef<HTMLDivElement|null>(null)
@@ -13,12 +14,15 @@ const useLazy = ({root=null,rootMargin="0px 0px 200px 0px"}:optionsTypes) => {
     useEffect(()=> {
 
         const onScroll = (entries:IntersectionObserverEntry[]) => {
-            console.log("intersector working")
+            
             const observedElement = entries[0];
             if (observedElement.isIntersecting) {
                 console.log("is intersecting")
-                setShow(true)
-                observer.disconnect()
+                if (!show )setShow(true)
+                if (once) observer.disconnect()
+            } else {
+                console.log("not intersecting")
+                if(show) setShow(false)
             }
         }
 

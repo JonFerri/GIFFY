@@ -5,14 +5,17 @@ import { GiffContext } from "../Context/GiffContext";
 
 function useGiffs(keyword:string) {
   
-  console.log("useGiffs acted");
+
+
   const { giffs, setGiffs } = useContext(GiffContext);
   const [isRandom, setIsRandom ] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  
+  const [page, setPage] = useState<number>(1)
+
   useEffect(() => {
+    console.log("First use Effect")
     setIsLoading(true);
-    GetGiffs(keyword).then(res => {
+    GetGiffs(keyword, 5).then(res => {
       setGiffs(res);
       setIsLoading(false);
       if (keyword === "random") setIsRandom(true)
@@ -20,7 +23,19 @@ function useGiffs(keyword:string) {
     });
   }, [keyword, setGiffs]);
 
-  return { giffs, isLoading, isRandom, keyword };
+  useEffect(()=>{
+   
+    if (page === 1) return
+    console.log("second use effect")
+    setIsLoading(true);
+    GetGiffs(keyword, 5, page).then(res => {
+      setGiffs(prevGiffs => prevGiffs.concat(res));
+      setIsLoading(false);
+      
+    });
+  }, [keyword, page, setGiffs])
+
+  return { giffs, isLoading, isRandom, keyword, page, setPage };
 }
 
 export default useGiffs;
