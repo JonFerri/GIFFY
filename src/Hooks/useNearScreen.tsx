@@ -6,9 +6,9 @@ type optionsTypes = {
     once?: boolean
 }
 
-const useLazy = ({root=null,rootMargin="0px 0px 200px 0px", once = true}:optionsTypes) => {
+const useNearScreen = ({root=null,rootMargin="0px 0px 200px 0px", once = true}:optionsTypes) => {
 
-    const [show, setShow] = useState<boolean>(false)
+    const [isNearScreen, setIsNearScreen] = useState<boolean>(false)
     const fromRef = useRef<HTMLDivElement|null>(null)
     
     useEffect(()=> {
@@ -18,11 +18,11 @@ const useLazy = ({root=null,rootMargin="0px 0px 200px 0px", once = true}:options
             const observedElement = entries[0];
             if (observedElement.isIntersecting) {
                 console.log("is intersecting")
-                if (!show )setShow(true)
+                if (!isNearScreen )setIsNearScreen(true)
                 if (once) observer.disconnect()
             } else {
                 console.log("not intersecting")
-                if(show) setShow(false)
+                if (isNearScreen) setIsNearScreen(false)
             }
         }
 
@@ -35,7 +35,7 @@ const useLazy = ({root=null,rootMargin="0px 0px 200px 0px", once = true}:options
     })
     
     
-    return {show,fromRef}
+    return {isNearScreen,fromRef}
 }
 
-export default useLazy;
+export default useNearScreen;

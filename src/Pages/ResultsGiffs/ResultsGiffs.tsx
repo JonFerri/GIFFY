@@ -4,21 +4,20 @@ import useGiffs from "../../Hooks/useGiffs";
 import ListOfGiffs from "../../Components/ListOfGiffs/ListOfGiffs";
 import GetKeyword from "Services/GetKeyword";
 import { Link } from "wouter";
-import useLazy from "Hooks/useLazy";
+import useNearScreen from "Hooks/useNearScreen";
 
 const ResultsGiffs = ({ params }: any) => {
 
     const { keyword } = params
     
     const { giffs, setPage } = useGiffs(GetKeyword(keyword))
-    const { fromRef, show } = useLazy({rootMargin:"300px", once: false})
+    const { fromRef, isNearScreen } = useNearScreen({once: false})
     
     //const handleNextPage = ()=> console.log("next page")
 
     useEffect(function() {
-        if (show) setPage(prev=> prev + 1)
-        //if (show) handleNextPage()
-    }, [setPage, show])
+        if (isNearScreen) setPage(prev=> prev + 1)
+    }, [setPage, isNearScreen])
 
     return (
         <div className="giffs-result-container">

@@ -27,3 +27,8 @@
     padding: 1rem;
     font-size: 1.5rem;
 }
+.infinity-scroll-bounder {
+    height: 2px;
+    width: 100%;
+    background: yellow;
+}
