@@ -13,7 +13,7 @@ function useGiffs(keyword:string) {
   const [page, setPage] = useState<number>(1)
 
   useEffect(() => {
-    console.log("First use Effect")
+    
     setIsLoading(true);
     GetGiffs(keyword, 5).then(res => {
       setGiffs(res);
@@ -26,7 +26,7 @@ function useGiffs(keyword:string) {
   useEffect(()=>{
    
     if (page === 1) return
-    console.log("second use effect")
+    
     setIsLoading(true);
     GetGiffs(keyword, 5, page).then(res => {
       setGiffs(prevGiffs => prevGiffs.concat(res));

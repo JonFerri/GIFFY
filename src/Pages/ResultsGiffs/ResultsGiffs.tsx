@@ -13,8 +13,6 @@ const ResultsGiffs = ({ params }: any) => {
     const { giffs, setPage } = useGiffs(GetKeyword(keyword))
     const { fromRef, isNearScreen } = useNearScreen({once: false})
     
-    //const handleNextPage = ()=> console.log("next page")
-
     useEffect(function() {
         if (isNearScreen) setPage(prev=> prev + 1)
     }, [setPage, isNearScreen])

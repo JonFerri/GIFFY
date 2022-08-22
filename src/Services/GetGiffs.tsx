@@ -3,7 +3,7 @@ import { API_KEY } from "./settings";
 
 
 function GetGiffs(keyword: string | null, limit = 20, page = 1) {
-  const api_url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${limit*(page-1)}&rating=g&lang=es`;
+  const api_url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${limit*(page-1)}&lang=es`;
 
   return fetch(api_url)
     .then(response => response.json())

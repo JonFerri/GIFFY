@@ -17,11 +17,11 @@ const useNearScreen = ({root=null,rootMargin="0px 0px 200px 0px", once = true}:o
             
             const observedElement = entries[0];
             if (observedElement.isIntersecting) {
-                console.log("is intersecting")
+
                 if (!isNearScreen )setIsNearScreen(true)
                 if (once) observer.disconnect()
             } else {
-                console.log("not intersecting")
+
                 if (isNearScreen) setIsNearScreen(false)
             }
         }
