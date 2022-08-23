@@ -20,7 +20,7 @@ const TrendingSearches = () => {
           return (
             <div key={i}>
               <Link className='link' href={`/giffs/${keyword}`}>
-                {keyword}{" "}
+                {keyword}
               </Link>
             </div>
           );
@@ -31,4 +31,4 @@ const TrendingSearches = () => {
   );
 };
 
-export default TrendingSearches;
+export default React.memo(TrendingSearches);

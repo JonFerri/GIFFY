@@ -25,4 +25,4 @@ const Giff = ({ url, title, id }: GiffProps) => {
   )
 }
 
-export default Giff
+export default React.memo(Giff)

@@ -15,11 +15,12 @@ function useGiffs(keyword:string) {
   useEffect(() => {
     
     setIsLoading(true);
-    GetGiffs(keyword, 5).then(res => {
-      setGiffs(res);
-      setIsLoading(false);
-      if (keyword === "random") setIsRandom(true)
-      localStorage.setItem("lastKeyword", keyword)
+    GetGiffs({keyword, limit:10})
+      .then(res => {
+        setGiffs(res);
+        setIsLoading(false);
+        if (keyword === "random") setIsRandom(true)
+        localStorage.setItem("lastKeyword", keyword)
     });
   }, [keyword, setGiffs]);
 
@@ -28,7 +29,7 @@ function useGiffs(keyword:string) {
     if (page === 1) return
     
     setIsLoading(true);
-    GetGiffs(keyword, 5, page).then(res => {
+    GetGiffs({keyword, limit: 10, page}).then(res => {
       setGiffs(prevGiffs => prevGiffs.concat(res));
       setIsLoading(false);
       
