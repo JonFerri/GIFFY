@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext,useReducer } from "react";
+import {useEffect, useContext,useReducer, useCallback } from "react";
 import GetGiffs from "../Services/GetGiffs";
 import { GiffContext } from "../Context/GiffContext";
 
@@ -18,7 +18,8 @@ function useGiffs(keyword:string) {
   }
   const ACTION_TYPES = {
      SET_IS_RANDOM: "setIsRandom",
-     SET_IS_LOADING: "setIsLoading"
+     SET_IS_LOADING: "setIsLoading",
+     SET_PAGE: "setPage"
   }
 
   function reducer (currentState:StateReducer, action:any){
@@ -34,15 +35,22 @@ function useGiffs(keyword:string) {
             ...currentState,
             isLoading: action.payload.value
           }
+        
+        case ACTION_TYPES.SET_PAGE:
+          return {
+            ...currentState,
+            page: currentState.page + 1
+          }
       
       }
   }
   const { giffs, setGiffs } = useContext(GiffContext);
-  const [page, setPage] = useState<number>(1)
+  
   
   //useReducer
   const [state, dispatch] = useReducer<React.Reducer<any,any>>(reducer,INITIAL_VALUES)
-  
+  const { isRandom, isLoading, page } = state;
+
   useEffect(() => {
     dispatch({type: ACTION_TYPES.SET_IS_LOADING, payload: {value:true}})
     GetGiffs({keyword, limit:10})
@@ -66,7 +74,12 @@ function useGiffs(keyword:string) {
     });
   }, [ACTION_TYPES.SET_IS_LOADING, keyword, page, setGiffs])
   
-  const { isRandom, isLoading } = state;
+  const setPage = useCallback(()=> {
+    dispatch({ type: ACTION_TYPES.SET_PAGE })
+  
+  },[ACTION_TYPES.SET_PAGE])
+
+  
   
   return { giffs, isLoading, isRandom, keyword, page, setPage };
 }

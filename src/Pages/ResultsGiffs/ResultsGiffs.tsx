@@ -11,17 +11,18 @@ const ResultsGiffs = ({ params }: any) => {
     const { keyword } = params
     
     const { giffs, setPage } = useGiffs(GetKeyword(keyword))
-    const { fromRef, isNearScreen } = useNearScreen({once: false, rootMargin:"300px"})
+    const { fromRef, isNearScreen } = useNearScreen({once: false, rootMargin:"500px"})
     
     useEffect(function() {
-        if (isNearScreen) setPage(prev=> prev + 1)
+        
+        if (isNearScreen) setPage()
+
     }, [setPage, isNearScreen])
 
     return (
         <div className="giffs-result-container">
             <Link className="link" to="/">Home</Link>
             <ListOfGiffs giffs={giffs} />
-            <button onClick={()=> setPage(prev=> prev + 1)}>Next Page</button>
             <div ref={fromRef} className="infinity-scroll-bounder" ></div>
         </div>
         

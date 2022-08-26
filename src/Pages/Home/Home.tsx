@@ -17,7 +17,7 @@ const Home = () => {
             <SearchBar />
             <h3>{isRandom ? "Random Giffs" : `Last search: "${ decodeURI(keyword) }"`}</h3>
             <ListOfGiffs giffs={giffs} /> 
-            <button onClick={()=> setPage(prev => prev + 1)} >Next page</button>
+            <button onClick={()=> setPage()} >Next page</button>
             <LazyTrending />
 
         </div>
