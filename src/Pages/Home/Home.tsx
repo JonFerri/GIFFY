@@ -2,7 +2,7 @@ import "./Home.css"
 import React from "react";
 import ListOfGiffs from "Components/ListOfGiffs/ListOfGiffs";
 import SearchBar from "Components/SearchBar/SearchBar";
-import useGiffs from "Hooks/useGiffs";
+import useGiffs from "Hooks/useGiffs/useGiffs";
 import GetKeyword from "Services/GetKeyword";
 import LazyTrending from "Components/TrendingSearches/LazyTrending";
 
@@ -10,7 +10,7 @@ import LazyTrending from "Components/TrendingSearches/LazyTrending";
 
 const Home = () => {
     
-    const { giffs, isRandom, keyword, setPage } = useGiffs(GetKeyword())
+    const { giffs, isRandom, keyword, setPage } = useGiffs({ keyword: GetKeyword() })
    
     return (
         <div className="home-page">

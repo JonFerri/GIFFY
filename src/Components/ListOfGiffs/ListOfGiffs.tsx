@@ -13,8 +13,8 @@ type ListOfGiffsProps = {
 };
 
 const ListOfGiffs = ({ giffs }: ListOfGiffsProps) => {
-console.log(giffs)
-return (
+
+  return (
     <>
       <div className='list-of-giffs'>
         {giffs?.map(giff => {

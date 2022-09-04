@@ -1,6 +1,7 @@
 import React from "react";
 import Giff from "./Giff";
 import {fireEvent, render,screen} from "@testing-library/react"
+import '@testing-library/jest-dom/extend-expect'
 
 test("it renders", async ()=> {
     const args = { 
@@ -27,12 +28,10 @@ test("img click", async ()=> {
         id : "sLUxwph4pLsy104Krm",
         
     }
-
-
+    
     render(<Giff {... args} />)
     
     const img = await screen.findByAltText("giff")
-    console.log(img.onclick)
     img.onclick = mockHandler  
     fireEvent.click(img)
     

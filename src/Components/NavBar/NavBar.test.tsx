@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 import { render, screen } from '@testing-library/react';
 
-test("giff renders", async () => {
+test("NavBar renders", async () => {
     
     render(<NavBar />)
     const home = await screen.findByText(/home/i)

@@ -1,6 +1,6 @@
 import "./NavBar.css"
 import React from "react"
-
+import {Link} from 'wouter'
 interface NavBarPropsInterface {
     name?:string
 }
@@ -8,7 +8,7 @@ interface NavBarPropsInterface {
 const NavBar = ({name}:NavBarPropsInterface) => {
     return (
         <div className="nav-bar-container">
-            <a href="/home">Home</a>
+            <Link href="/">Home</Link>
         </div>
     )
 }
