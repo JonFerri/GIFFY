@@ -30,7 +30,7 @@ function useGiffs({ keyword }: { keyword: string }) {
     dispatch({ type: "setIsLoading", payload: { value: true } })
     GetGiffs({ keyword, limit: 10, page }).then(res => {
       setGiffs(prevGiffs => prevGiffs.concat(res))
-      dispatch({ type: "ji", payload: { value: false } })
+      dispatch({ type: "setIsLoading", payload: { value: false } })
     })
   }, [keyword, page, setGiffs])
 
