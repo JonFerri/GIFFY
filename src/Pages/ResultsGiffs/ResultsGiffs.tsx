@@ -3,8 +3,8 @@ import React, { useEffect }  from "react";
 import useGiffs from "../../Hooks/useGiffs/useGiffs";
 import ListOfGiffs from "../../Components/ListOfGiffs/ListOfGiffs";
 import GetKeyword from "Services/GetKeyword";
-import { Link } from "wouter";
 import useNearScreen from "Hooks/useNearScreen";
+import NavBar from "Components/NavBar/NavBar";
 
 const ResultsGiffs = ({ params }: any) => {
 
@@ -21,7 +21,7 @@ const ResultsGiffs = ({ params }: any) => {
 
     return (
         <div className="giffs-result-container">
-            <Link className="link" to="/">Home</Link>
+            <NavBar />
             <ListOfGiffs giffs={giffs} />
             <div ref={fromRef} className="infinity-scroll-bounder" ></div>
         </div>

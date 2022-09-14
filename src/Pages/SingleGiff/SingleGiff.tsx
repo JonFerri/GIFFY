@@ -24,6 +24,7 @@ const SingleGiff = ({params}:any) => {
         <>
             <NavBar />
             <Giff title={giff.title} url={giff.url} id={giff.id} />
+            
         </>
     )
 }
