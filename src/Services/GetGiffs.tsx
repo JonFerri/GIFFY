@@ -1,4 +1,4 @@
-
+//Imports
 import { API_KEY } from "./settings";
 interface GetGiffsArgs {
   keyword: string | null
