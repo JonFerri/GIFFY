@@ -1,6 +1,7 @@
 import Loading from "Components/Loading/Loading";
 import NavBar from "Components/NavBar/NavBar";
 import useSingleGiff from "Hooks/useSingleGiff/useSingleGiff";
+import useTitle from "Hooks/useTitle/useTitle";
 import React from "react";
 import { Redirect } from "wouter";
 import Giff from "../../Components/Giff/Giff";
@@ -11,6 +12,9 @@ const SingleGiff = ({params}:any) => {
     const { id } = params;
     
     const { giff, isLoading, isError } = useSingleGiff(id)
+
+    const {title} = giff
+    useTitle({title})
 
     
     if(isLoading) return <Loading />

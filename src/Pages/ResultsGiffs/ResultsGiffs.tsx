@@ -5,6 +5,7 @@ import ListOfGiffs from "../../Components/ListOfGiffs/ListOfGiffs";
 import GetKeyword from "Services/GetKeyword";
 import useNearScreen from "Hooks/useNearScreen";
 import NavBar from "Components/NavBar/NavBar";
+import useTitle from "Hooks/useTitle/useTitle";
 
 const ResultsGiffs = ({ params }: any) => {
 
@@ -12,12 +13,14 @@ const ResultsGiffs = ({ params }: any) => {
     
     const { giffs, setPage } = useGiffs({ keyword: GetKeyword(keyword) })
     const { fromRef, isNearScreen } = useNearScreen({once: false, rootMargin:"500px"})
-    
+    const title = `${keyword} giffs`
+    useTitle({title})
     useEffect(function() {
         
         if (isNearScreen) setPage()
 
     }, [setPage, isNearScreen])
+
 
     return (
         <div className="giffs-result-container">
