@@ -4,7 +4,8 @@
     page-break-inside: avoid;
     break-inside: avoid;
     display: inline-block;
-    width: 100%;
+    width: 95%;
+    max-width: 500px;
 }
 .img-container {
     position:relative
