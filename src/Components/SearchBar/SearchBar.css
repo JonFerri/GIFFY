@@ -1,9 +1,31 @@
 .search-bar {
-    background-color: rgba(256, 256, 256, .5);
-    margin: 5rem 0;
-    padding: 2rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 90%;
+    max-width: 600px;
 }
-.search-bar button, .search-bar input {
+.search-bar form {
+    /* background-color: rgba(256, 256, 256, .5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+.search-bar button, .search-bar input, .search-bar select {
     border: none;
+    outline: none;
     padding: .3rem;
+    height: 2rem;
+}
+.search-bar button {
+    background-color: rgb(80, 80, 244);
+    color: white;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar input {
+    flex-shrink: 1;
 }

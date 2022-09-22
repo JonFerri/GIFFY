@@ -6,12 +6,13 @@ import GetKeyword from "Services/GetKeyword";
 import useNearScreen from "Hooks/useNearScreen";
 import NavBar from "Components/NavBar/NavBar";
 import useTitle from "Hooks/useTitle/useTitle";
+import SearchBar from "Components/SearchBar/SearchBar";
 
 const ResultsGiffs = ({ params }: any) => {
 
-    const { keyword } = params
+    const { keyword, limit, lang } = params
     
-    const { giffs, setPage } = useGiffs({ keyword: GetKeyword(keyword) })
+    const { giffs, setPage } = useGiffs({ keyword: GetKeyword(keyword), limit, lang })
     const { fromRef, isNearScreen } = useNearScreen({once: false, rootMargin:"500px"})
     const title = `${keyword} giffs`
     useTitle({title})
@@ -25,6 +26,7 @@ const ResultsGiffs = ({ params }: any) => {
     return (
         <div className="giffs-result-container">
             <NavBar />
+            <SearchBar />
             <ListOfGiffs giffs={giffs} />
             <div ref={fromRef} className="infinity-scroll-bounder" ></div>
         </div>

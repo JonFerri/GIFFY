@@ -4,11 +4,12 @@
     page-break-inside: avoid;
     break-inside: avoid;
     display: inline-block;
-    width: 95%;
+    width: 100%;
     max-width: 500px;
 }
 .img-container {
-    position:relative
+    position:relative;
+    width: 100%;
 }
 .single-giff-container img {
     width: 100%;

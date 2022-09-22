@@ -6,6 +6,7 @@ import useGiffs from "Hooks/useGiffs/useGiffs";
 import GetKeyword from "Services/GetKeyword";
 import LazyTrending from "Components/TrendingSearches/LazyTrending";
 import useTitle from "Hooks/useTitle/useTitle";
+import NavBar from "Components/NavBar/NavBar";
 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
     
     return (
         <div className="home-page">
+            <NavBar />
             <SearchBar />
             <h3>{isRandom ? "Random Giffs" : `Last search: "${ decodeURI(keyword) }"`}</h3>
             <ListOfGiffs giffs={giffs} /> 
