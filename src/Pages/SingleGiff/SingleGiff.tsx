@@ -13,9 +13,9 @@ const SingleGiff = ({params}:any) => {
     
     const { giff, isLoading, isError } = useSingleGiff(id)
 
-    const {title} = giff
+    const title: string = giff ? giff.title : ""  
     useTitle({title})
-
+    
     
     if(isLoading) return <Loading />
     if (isError) return (<Redirect to="/404"/>)
@@ -23,6 +23,7 @@ const SingleGiff = ({params}:any) => {
     //the following line prevents the app from crashing, since it would try to render
     //before having the giff
     if(!giff) return <>{console.log("rendering")}</>
+    
     
     return (
         <>
