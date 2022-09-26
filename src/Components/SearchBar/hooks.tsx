@@ -12,6 +12,7 @@ export default function useForm ({initialKeyword,initialLang,initialLimit}:Searc
     const [state, dispatch] = useReducer<React.Reducer<StateType,ActionType>>(reducer,initialState)
     
     const {limit,lang,textInput} = state
+    
     return {
         limit,
         lang,

@@ -19,7 +19,7 @@ const TrendingSearches = () => {
         {trendingKeywords.map((keyword, i) => {
           return (
             <div key={i}>
-              <Link className='link' href={`/giffs/${keyword}`}>
+              <Link className='link' href={`/giffs/${keyword}/20/en`}>
                 {keyword}
               </Link>
             </div>
