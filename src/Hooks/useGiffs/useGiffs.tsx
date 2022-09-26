@@ -1,7 +1,7 @@
 import { useEffect, useContext, useReducer, useCallback } from "react"
 import GetGiffs from "../../Services/GetGiffs"
 import { GiffContext } from "../../Context/GiffContext"
-import { INITIAL_VALUES, reducer } from "./reducerControllers"
+import { INITIAL_VALUES, reducer, StateReducer, GiffReducerAction } from "./reducerControllers"
 
 interface useGiffsParams  {
   keyword:string
@@ -14,7 +14,7 @@ function useGiffs({ keyword, limit, lang }: useGiffsParams) {
   const { giffs, setGiffs } = useContext(GiffContext)
 
   //useReducer
-  const [state, dispatch] = useReducer<React.Reducer<any, any>>(
+  const [state, dispatch] = useReducer<React.Reducer<StateReducer, GiffReducerAction>>(
     reducer,
     INITIAL_VALUES
   )
@@ -42,7 +42,7 @@ function useGiffs({ keyword, limit, lang }: useGiffsParams) {
   }, [keyword, lang, limit, page, setGiffs])
 
   const setPage = useCallback(() => {
-    dispatch({ type: "setPage" })
+    dispatch({ type: "setPage", payload: null })
   }, [])
 
   return { giffs, isLoading, isRandom, keyword, page, setPage }

@@ -1,5 +1,6 @@
 import { StateType } from "types"
 
+
 const dispatchController = {
   setGiff(prevState: StateType, action: any): StateType {
     return {
@@ -22,10 +23,14 @@ const dispatchController = {
 }
 
 type ControllerKeys = keyof typeof dispatchController
+type SingleGiffReducerAction = {
+  type: ControllerKeys
+  payload: any 
+}
 
-type SingleGiffReducer<S, A> = (prevState: S, action: A) => S
+//type SingleGiffReducer<S, A> = (prevState: S, action: A) => S
 
-export const reducer: SingleGiffReducer<StateType, any> = (
+export const reducer: React.Reducer<StateType, SingleGiffReducerAction> = (
   prevState: StateType,
   action: any
 ) => {

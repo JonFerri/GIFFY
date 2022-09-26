@@ -26,7 +26,7 @@ const ResultsGiffs = ({ params }: any) => {
     return (
         <div className="giffs-result-container">
             <NavBar />
-            <SearchBar />
+            <SearchBar initialKeyword={keyword} initialLang={lang} initialLimit={limit}/>
             <ListOfGiffs giffs={giffs} />
             <div ref={fromRef} className="infinity-scroll-bounder" ></div>
         </div>

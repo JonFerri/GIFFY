@@ -1,4 +1,4 @@
-interface StateReducer {
+export interface StateReducer {
   isRandom: boolean
   isLoading: boolean
   page: number
@@ -32,12 +32,13 @@ const reducerController = {
 
 type ControllerMethodsTypes = keyof typeof reducerController
 type GiffsReducer<S, A> = (prevState: S, action: A) => S
-type GiffReducerAction = {
+
+export type GiffReducerAction = {
     type: ControllerMethodsTypes
-    payload:any
+    payload: any
 }
 
-export const reducer: GiffsReducer<StateReducer, any> = (
+export const reducer: GiffsReducer<StateReducer, GiffReducerAction> = (
   currentState: StateReducer,
   action: GiffReducerAction
 ) => {
