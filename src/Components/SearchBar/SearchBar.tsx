@@ -1,37 +1,33 @@
 import "./SearchBar.css"
-import React, { useReducer } from "react"
+import React from "react"
 import { useLocation } from "wouter"
 import { FaSearch } from "react-icons/fa"
-import reducer, {StateType, Langs, ActionType} from "./reducerController"
+import useForm from "./hooks"
+import { Langs } from "./reducerController"
 
-type SearchBarProps = {
+export type SearchBarProps = {
   initialKeyword: string
   initialLimit: number
-  initialLang: "es"|"en"
+  initialLang: "es" | "en"
 }
 
-const SearchBar = ({initialKeyword, initialLimit, initialLang}: SearchBarProps) => {
-  
+const SearchBar = ({
+  initialKeyword,
+  initialLimit,
+  initialLang,
+}: SearchBarProps) => {
   const [, navigate] = useLocation()
-  
-  const initialState = {
-    textInput: initialKeyword,
-    lang: initialLang,
-    limit: initialLimit
-  }
-  const [state, dispatch] = useReducer<React.Reducer<StateType,ActionType>>(reducer,initialState)
-  // function clearInput() {
-  //   changeTextInput("")
-  // }
+  const { limit, textInput, lang, updateLimit, updateLang, updateTextInput } =
+    useForm({ initialKeyword, initialLang, initialLimit })
 
-  function handleChangeLang (e:React.ChangeEvent<HTMLSelectElement>){
-    const value : Langs = e.target.value as Langs
+  function handleChangeLang(e: React.ChangeEvent<HTMLSelectElement>) {
+    const value: Langs = e.target.value as Langs
     //setLang(value)
-    dispatch({type:"setLang",payload:{lang:value}})
+    updateLang(value)
   }
 
   function showGiffs() {
-    navigate(state.textInput === "" ? "/" : `/giffs/${state.textInput}/${state.limit}/${state.lang}`)
+    navigate(textInput === "" ? "/" : `/giffs/${textInput}/${limit}/${lang}`)
     // clearInput()
   }
 
@@ -42,12 +38,12 @@ const SearchBar = ({initialKeyword, initialLimit, initialLang}: SearchBarProps) 
 
   return (
     <div className='search-bar'>
-      <form onSubmit={(e)=> handleSubmit(e)}>
+      <form onSubmit={e => handleSubmit(e)}>
         <input
           type='text'
-          value={state.textInput}
+          value={textInput}
           onChange={e => {
-            dispatch({type:"changeTextInput", payload:{textInput:e.target.value}})
+            updateTextInput(e.target.value)
           }}
           placeholder='Find giffs...'
         />
@@ -58,9 +54,9 @@ const SearchBar = ({initialKeyword, initialLimit, initialLang}: SearchBarProps) 
           name='limit'
           id='limit'
           onChange={e => {
-            dispatch({type:"setLimit",payload:{limit:parseInt(e.target.value)}})
+            updateLimit(parseInt(e.target.value))
           }}
-          value={state.limit}
+          value={limit}
         >
           <option value='5'>5</option>
           <option value='10'>10</option>
@@ -70,7 +66,7 @@ const SearchBar = ({initialKeyword, initialLimit, initialLang}: SearchBarProps) 
           name='lang'
           id='lang'
           onChange={e => handleChangeLang(e)}
-          value={state.lang}
+          value={lang}
         >
           <option value='es'>Spanish</option>
           <option value='en'>English</option>
