@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-type GiffType = {
+export type GiffType = {
   url: string;
   title: string;
   id: string
