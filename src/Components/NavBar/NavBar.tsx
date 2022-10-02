@@ -1,7 +1,7 @@
 import "./NavBar.css"
 import React from "react"
 import { Link } from "wouter"
-import { FaHome, FaSearch, FaShare } from "react-icons/fa"
+import { FaHome, FaSearch, FaShare, FaUser } from "react-icons/fa"
 
 interface NavBarPropsInterface {
   name?: string
@@ -32,6 +32,14 @@ const NavBar = ({ name }: NavBarPropsInterface) => {
         </Link>
         <Link href='/' className='link'>
           <span className='text'>Share</span>
+        </Link>
+      </div>
+      <div className='link-group'>
+        <Link href='/login' className='link'>
+          <FaUser className='icon' size="24px" />
+        </Link>
+        <Link href='/login' className='link'>
+          <span className='text'>Login</span>
         </Link>
       </div>
     </div>

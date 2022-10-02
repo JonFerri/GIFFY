@@ -18,7 +18,7 @@ const SearchBar = ({
 }: SearchBarProps) => {
   const [, navigate] = useLocation()
   const { limit, textInput, lang, updateLimit, updateLang, updateTextInput } =
-    useForm({ initialKeyword, initialLang, initialLimit })
+    useForm({ initialKeyword: decodeURI(initialKeyword), initialLang, initialLimit })
 
   function handleChangeLang(e: React.ChangeEvent<HTMLSelectElement>) {
     const value: Langs = e.target.value as Langs

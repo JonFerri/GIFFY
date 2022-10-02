@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <div className="home-page">
             <NavBar />
-            <SearchBar initialKeyword={keyword} initialLimit={giffs ? giffs.length : 5} initialLang="en"/>
+            <SearchBar initialKeyword={keyword} initialLimit={giffs.length !== 0 ? giffs.length : 5} initialLang="en"/>
             <h3>{isRandom ? "Random Giffs" : `Last search: "${ decodeURI(keyword) }"`}</h3>
             <ListOfGiffs giffs={giffs} /> 
             <button onClick={()=> setPage()} >Next page</button>
