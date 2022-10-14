@@ -14,10 +14,11 @@ function GetGiffs({keyword, limit = 10, page = 1,lang="en"}:GetGiffsArgs) {
     .then(response => response.json())
     .then(parsedResponse => {
       const { data } = parsedResponse;
+      //console.log(data)
       const giffInfo = data.map((giff: any) => {
         const { images, id, title } = giff;
-        const { url } = images.downsized_medium;
-        return { url, id, title };
+        const { url, height, width } = images.downsized_medium;
+        return { url, id, title, height, width };
       });
 
       return giffInfo;

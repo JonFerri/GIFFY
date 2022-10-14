@@ -1,0 +1,10 @@
+.giff-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.giff-wrap {
+    width: 90%;
+    margin-top: 3rem;
+}

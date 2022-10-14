@@ -5,18 +5,24 @@ interface GetLoggedInArgsTypes {
 }
 
 const getLoggedIn = async ({user, password}:GetLoggedInArgsTypes)=> {
-    const data = await fetch("http://localhost:3030/api/login/login", {
-        method: "POST",
-        headers: {
+    
+    try {
+        const data = await fetch("http://localhost:3030/api/login/login", {
+            method: "POST",
+            headers: {
             "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            nickName:user,
-            password
+            },
+            body: JSON.stringify({
+                nickName:user,
+                password
+            })
         })
-    })
-    const token = await data.json()
-    return token
+        const userInfo = await data.json()
+        return userInfo    
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 export default getLoggedIn

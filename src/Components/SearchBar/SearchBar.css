@@ -1,8 +1,10 @@
 .search-bar {
-    margin: 1rem 0;
-    padding: 1rem;
-    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
     max-width: 600px;
+    margin-top: 3rem;
 }
 .search-bar form {
     /* background-color: rgba(256, 256, 256, .5); */
@@ -10,7 +12,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 600px;
+    
 }
 .search-bar button, .search-bar input, .search-bar select {
     border: none;
@@ -21,11 +23,6 @@
 .search-bar button {
     background-color: rgb(80, 80, 244);
     color: white;
-    width: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.search-bar input {
-    flex-shrink: 1;
+    width: 3rem;
+    
 }

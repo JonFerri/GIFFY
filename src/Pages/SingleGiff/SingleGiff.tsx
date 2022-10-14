@@ -1,5 +1,6 @@
+import "./SingleGiff.css"
+import Header from "Components/Header/Header";
 import Loading from "Components/Loading/Loading";
-import NavBar from "Components/NavBar/NavBar";
 import useSingleGiff from "Hooks/useSingleGiff/useSingleGiff";
 import useTitle from "Hooks/useTitle/useTitle";
 import React from "react";
@@ -26,11 +27,14 @@ const SingleGiff = ({params}:any) => {
     
     
     return (
-        <>
-            <NavBar />
-            <Giff title={giff.title} url={giff.url} id={giff.id} />
+        <section className="giff-container">
+            <Header />
+            <div className="giff-wrap">
+                <Giff {...giff} />
+            </div>
             
-        </>
+            
+        </section>
     )
 }
 

@@ -4,9 +4,9 @@ import useGiffs from "../../Hooks/useGiffs/useGiffs";
 import ListOfGiffs from "../../Components/ListOfGiffs/ListOfGiffs";
 import GetKeyword from "Services/GetKeyword";
 import useNearScreen from "Hooks/useNearScreen";
-import NavBar from "Components/NavBar/NavBar";
 import useTitle from "Hooks/useTitle/useTitle";
 import SearchBar from "Components/SearchBar/SearchBar";
+import Header from "Components/Header/Header";
 
 const ResultsGiffs = ({ params }: any) => {
 
@@ -25,7 +25,7 @@ const ResultsGiffs = ({ params }: any) => {
 
     return (
         <div className="giffs-result-container">
-            <NavBar />
+            <Header />
             <SearchBar initialKeyword={keyword} initialLang={lang} initialLimit={limit}/>
             <ListOfGiffs giffs={giffs} />
             <div ref={fromRef} className="infinity-scroll-bounder" ></div>

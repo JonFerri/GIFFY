@@ -8,4 +8,6 @@ export type GiffProps = {
   url: string
   title: string
   id: string
+  height: number
+  width: number
 }

@@ -1,12 +1,10 @@
 .nav-bar-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     /* border: white solid 2px; */
-    width: 95%;
-    max-width: 800px;
-    margin: 1rem;
-    margin-top: 2rem;
-
+    padding: 20px;
+    /* background-color: rgba(255, 255, 255,0.2); */
+     
 }
 
 .nav-bar-container > .link-group {
@@ -17,6 +15,7 @@
     justify-content: center;
     text-decoration: none;
     /* border: white solid 2px; */
+    margin: 0 1rem
     
 }
 
@@ -29,5 +28,9 @@
     /* border: yellow solid 2px; */
     margin:0
     
+}
+.nav-bar-container button {
+    background: none;
+    border: none
 }
 

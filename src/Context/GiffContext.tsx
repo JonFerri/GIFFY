@@ -3,7 +3,9 @@ import React, { useState } from "react";
 export type GiffType = {
   url: string;
   title: string;
-  id: string
+  id: string;
+  height: number;
+  width: number
 }
 type GiffContextTypes = {
   giffs: Array<GiffType>

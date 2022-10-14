@@ -2,10 +2,12 @@ import "./ListOfGiffs.css"
 import React from 'react'
 import Giff from "../Giff/Giff";
 
-type GiffType = {
+export type GiffType = {
   url: string;
   id: string;
   title: string;
+  height: number;
+  width: number;
 };
 
 type ListOfGiffsProps = {
@@ -13,12 +15,12 @@ type ListOfGiffsProps = {
 };
 
 const ListOfGiffs = ({ giffs }: ListOfGiffsProps) => {
-
+  console.log({giffs})
   return (
     <>
       <div className='list-of-giffs'>
         {giffs?.map(giff => {
-          return <Giff key={giff.id} title={giff.title} url={giff.url} id={giff.id} />;
+          return <Giff key={giff.id} {...giff} />;
         })}
       </div>
     </>
