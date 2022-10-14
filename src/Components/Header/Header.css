@@ -1,0 +1,17 @@
+header {
+    width: 90%;
+    max-width: 1200px;
+    /* border: yellow solid 2px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    background-color: rgba(255, 255, 255,0.2);
+}
+header h1 {
+    padding: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+}
