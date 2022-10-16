@@ -1,4 +1,4 @@
-
+import { USER_API_URI } from "../Services/settings"
 
 type ArgsGetUserFavsType = {
     jwt: string | null
@@ -7,7 +7,7 @@ type ArgsGetUserFavsType = {
 const getUserFavs =  async ({ jwt }:ArgsGetUserFavsType) => {
     try {
         const apiData = await fetch(
-            "http://localhost:3030/api/favs/getFavs",
+            `${USER_API_URI}/api/favs/getFavs`,
             {
                 method: "GET",
                 headers: {

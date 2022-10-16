@@ -1,4 +1,4 @@
-
+import { USER_API_URI } from "../Services/settings"
 interface GetLoggedInArgsTypes {
     user: string
     password: string
@@ -7,7 +7,7 @@ interface GetLoggedInArgsTypes {
 const getLoggedIn = async ({user, password}:GetLoggedInArgsTypes)=> {
     
     try {
-        const data = await fetch("http://localhost:3030/api/login/login", {
+        const data = await fetch(`${USER_API_URI}/api/login/login`, {
             method: "POST",
             headers: {
             "Content-Type": "application/json"

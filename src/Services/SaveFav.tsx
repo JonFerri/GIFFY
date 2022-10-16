@@ -1,4 +1,5 @@
 import {GiffType} from "Components/ListOfGiffs/ListOfGiffs"
+import { USER_API_URI } from "../Services/settings"
 
 type ArgsType = {
     giff: GiffType
@@ -9,7 +10,7 @@ const saveFav = async ({giff, token}:ArgsType) => {
     
     try {
         const apiData = await fetch(
-            "http://localhost:3030/api/favs/createFav",
+            `${USER_API_URI}/api/favs/createFav`,
             {   method: "POST",
                 headers:{ 
                     "Content-Type": "application/json", 
